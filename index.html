@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+   
+    <title>Calculo IMC</title>
+    <link rel="stylesheet" href= "Style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <script type="text/javascript">
+    function calcular_imc(){
+      var Altura = document.getElementById("altura").value;;
+      var Peso = document.getElementById("peso").value;
+      var sexo = document.getElementById("sexo").value;
+      var imc1 = document.getElementsByName("imc");
+      
+      if(Altura == 0 || Altura == "null"){
+        alert("Altura igual a 0 ou nula");
+      }
+      else if((Peso == 0 || Peso == "null")){
+       alert("Peso igual a 0 ou nulo"); 
+      }
+      else{
+       var imc = Peso/(Altura*Altura);
+         imc = Peso/(Altura*Altura);
+      if(sexo == "Masculino"){
+        if(imc < 20.7){
+          alert("Abaixo do peso");
+        }
+        else if(imc >= 20.7 && imc <=26.4){
+          alert("Peso normal");
+        }
+        else if(imc >= 26.4 && imc <=27.8){
+          alert("Marginalmente acima do peso");
+        }
+        else if(imc >= 27.8 && imc <=31.1){
+          alert("Acima do peso");
+        }
+        else{
+          alert("Obeso");
+        }
+      }
+      else if(sexo == "Feminino"){
+        if(imc < 19.1){
+          alert("Abaixo do peso");
+        }
+        else if(imc >= 19.1 && imc <=25.8){
+          alert("Peso normal");
+        }
+        else if(imc >= 25.8 && imc <=27.3){
+          alert("Marginalmente acima do peso");
+        }
+        else if(imc >= 27.3 && imc <=32.3){
+          alert("Acima do peso");
+        }
+        else{
+          alert("Obesa");
+        }
+      }
+    }
+    imc1.imc.value = imc.toFixed(2);
+  }
+  </script>
+  </head>
+<body>
+  <h1>Calculadora de IMC</h1>
+  <div class"container">
+    <div class="col-md-2">
+        <div class="row">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Altura</span>
+              <input type="text" class="form-control" placeholder="Metros" id="altura" >
+          </div>
+        </div>
+      </div>
+      <div class="row">
+          <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Peso</span>
+            <input type="text" class="form-control" placeholder="Kilograma" id="peso" >
+        </div>
+      </div>
+    </div>
+
+
+      <div class="row">
+          <div class="input-group mb-3 col-md-8">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Sexo</span>
+        <div class="input-group">
+          <select class="form-control" id ="sexo">
+            <option >Feminino</option>
+            <option>Masculino</option>
+          </select> 
+        </div>
+      </div>
+    </div>
+      </div>
+      <div class="row">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">IMC : </span>
+              <input type="text" name ="imc" class="form-control" disabled="" >
+          </div>
+        </div>
+      </div>
+    <button = class="btn btn-outline-secondary" onclick="calcular_imc()">Calcular
+    </button>
+  </div>
+</div>
+  </body>
+</html>
